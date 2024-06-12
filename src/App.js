@@ -1,29 +1,27 @@
 import './styles.css';
-import useFetch from './useFetch';
-
-const url = 'https://www.moogleapi.com/api/v1/characters';
+import { useState } from 'react';
+import CardList from './CardList';
+import Scores from './Scores';
 
 function App() {
-  const [data, loading, error] = useFetch(url);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
-  let displayedData;
-  if (loading) {
-    displayedData = <div>Loading...</div>;
-  } else if (error) {
-    displayedData = <div>{error}</div>;
-  } else {
-    displayedData = data.map((character) => {
-      const { name, id, pictures } = character;
-      return (
-        <article key={id}>
-          <img src={pictures[0].url} alt={name} />
-          <p>{name}</p>
-        </article>
-      );
-    });
-  }
+  const updateScore = () => {
+    let updatedScore = currentScore + 1;
+    setCurrentScore(updatedScore);
 
-  return <main>{displayedData}</main>;
+    if (bestScore < updatedScore) {
+      setBestScore(updatedScore);
+    }
+  };
+
+  return (
+    <div>
+      <Scores currentScore={currentScore} bestScore={bestScore}></Scores>
+      <CardList addScore={updateScore} currentScore={currentScore} />
+    </div>
+  );
 }
 
 export default App;
