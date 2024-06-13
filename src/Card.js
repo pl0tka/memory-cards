@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function Card({ character, updateScore, gameOver }) {
+function Card({ character, updateScore, gameOver, shuffleCards }) {
   const { name, pictures } = character;
   const [isClickedTwice, setIsClickedTwice] = useState(false);
 
@@ -11,6 +11,7 @@ function Card({ character, updateScore, gameOver }) {
     } else {
       updateScore(isClickedTwice);
     }
+    shuffleCards();
   };
 
   useEffect(() => {
