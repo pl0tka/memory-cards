@@ -9,10 +9,8 @@ function App() {
   const [gameOver, setGameOver] = useState(false);
 
   const updateScore = (clickedTwice) => {
-    let updatedScore = currentScore + 1;
-
     if (!clickedTwice) {
-      setCurrentScore(updatedScore);
+      setCurrentScore(currentScore + 1);
     } else {
       setBestScore(Math.max(currentScore, bestScore));
       setCurrentScore(0);
