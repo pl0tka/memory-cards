@@ -21,7 +21,7 @@ function Card({ character, updateScore, gameOver, shuffleCards }) {
   }, [gameOver]);
 
   return (
-    <article onClick={handleClick}>
+    <article onClick={handleClick} className="card">
       <img src={pictures[0].url} alt={name} />
       <p>{name}</p>
     </article>

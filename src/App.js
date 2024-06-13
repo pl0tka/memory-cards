@@ -1,7 +1,7 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
 import CardList from './CardList';
-import Scores from './Scores';
+import Header from './Header';
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div>
-      <Scores currentScore={currentScore} bestScore={bestScore}></Scores>
+      <Header currentScore={currentScore} bestScore={bestScore} />
       <CardList
         updateScore={updateScore}
         currentScore={currentScore}
