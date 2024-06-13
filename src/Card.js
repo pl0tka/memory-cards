@@ -1,12 +1,26 @@
-function Card({ character, addScore }) {
-  const { name, id, pictures } = character;
+import { useState, useEffect } from 'react';
+
+function Card({ character, updateScore, gameOver }) {
+  const { name, pictures } = character;
+  const [isClickedTwice, setIsClickedTwice] = useState(false);
 
   const handleClick = () => {
-    addScore();
+    if (!isClickedTwice) {
+      updateScore(isClickedTwice);
+      setIsClickedTwice(true);
+    } else {
+      updateScore(isClickedTwice);
+    }
   };
 
+  useEffect(() => {
+    if (gameOver) {
+      setIsClickedTwice(false);
+    }
+  }, [gameOver]);
+
   return (
-    <article key={id} onClick={handleClick}>
+    <article onClick={handleClick}>
       <img src={pictures[0].url} alt={name} />
       <p>{name}</p>
     </article>

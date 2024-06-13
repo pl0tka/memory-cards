@@ -3,7 +3,7 @@ import Card from './Card';
 
 const url = 'https://www.moogleapi.com/api/v1/characters';
 
-function CardList({ addScore }) {
+function CardList({ updateScore, gameOver }) {
   const [data, loading, error] = useFetch(url);
 
   let displayedData;
@@ -17,7 +17,8 @@ function CardList({ addScore }) {
         <Card
           character={character}
           key={character.id}
-          addScore={addScore}
+          updateScore={updateScore}
+          gameOver={gameOver}
         ></Card>
       );
     });
