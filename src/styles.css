@@ -1,8 +1,12 @@
 :root {
-  --clr-background-dark: #222;
+  --clr-background: #222;
   --clr-card-shadow: #2d517bed;
   --clr-card-shadow-hover: #517babed;
+  --clr-text: #fff;
+  --clr-border: #fff;
   --radius: 1rem;
+  --icon-light: none;
+  --icon-dark: none;
 }
 * {
   margin: 0;
@@ -11,14 +15,38 @@
 }
 body {
   font-family: 'Courier New', Courier, monospace;
-  background-color: var(--clr-background-dark);
-  color: white;
+  background-color: var(--clr-background);
+  color: var(--clr-text);
+}
+
+/* *** THEME TOGGLER *** */
+.theme-toggler {
+  border: none;
+  background-color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  display: block;
+  margin-left: auto;
+}
+@media screen and (min-width: 768px) {
+  .theme-toggler {
+    font-size: 2rem;
+  }
+}
+.icon-light {
+  color: var(--clr-card-shadow);
+  display: var(--icon-light);
+}
+.icon-dark {
+  color: var(--clr-card-shadow-hover);
+  display: var(--icon-dark);
 }
 
 /* *** HEADER *** */
 header {
-  background-color: var(--clr-background-dark);
-  width: 100vw;
+  background-color: var(--clr-background);
+  max-width: 100vw;
   height: auto;
   position: sticky;
   top: 0;
@@ -26,8 +54,8 @@ header {
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
-  padding: 2rem;
   box-shadow: 2px 2px 5px rgba(81, 123, 171, 0.322);
+  padding: 1rem 2rem;
 }
 /* title & subtitle */
 .title {
@@ -43,6 +71,7 @@ header {
   header {
     flex-direction: row;
     gap: 7rem;
+    padding: 2rem;
   }
   .title {
     font-size: 2.5rem;
@@ -88,7 +117,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  border: 1px solid white;
+  border: 1px solid var(--clr-border);
   border-radius: var(--radius);
   box-shadow: 10px 10px 0px 5px var(--clr-card-shadow);
   cursor: pointer;

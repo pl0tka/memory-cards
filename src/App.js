@@ -2,6 +2,7 @@ import './styles.css';
 import { useState, useEffect } from 'react';
 import CardList from './CardList';
 import Header from './Header';
+import ThemeToggler from './ThemeToggler';
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div>
+      <ThemeToggler />
       <Header currentScore={currentScore} bestScore={bestScore} />
       <CardList
         updateScore={updateScore}
