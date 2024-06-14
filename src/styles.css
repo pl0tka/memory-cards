@@ -38,9 +38,15 @@ body {
   color: var(--clr-card-shadow);
   display: var(--icon-light);
 }
+.icon-light:hover {
+  color: var(--clr-card-shadow-hover);
+}
 .icon-dark {
   color: var(--clr-card-shadow-hover);
   display: var(--icon-dark);
+}
+.icon-dark:hover {
+  color: var(--clr-card-shadow);
 }
 
 /* *** HEADER *** */
