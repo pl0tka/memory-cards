@@ -55,7 +55,7 @@ function App() {
   return (
     <div>
       {dialog}
-      <div className="top-panel">
+      <div className="header-toolbar">
         <NewGameBtn handleNewGame={handleNewGame} />
         <ThemeToggler />
       </div>

@@ -47,7 +47,7 @@ function CardList({ updateScore, gameOver, amountOfCards }) {
     });
   }
 
-  return <main>{displayedData}</main>;
+  return <main className="cards">{displayedData}</main>;
 }
 
 export default CardList;
