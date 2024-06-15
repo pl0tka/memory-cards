@@ -21,21 +21,20 @@ function NewGameDialog({ handleNewGame, onStart }) {
   };
 
   return (
-    <section className="new-game">
-      <div className="new-game-box overflow-hidden">
-        <div className="new-game-inner">
-          <form onSubmit={handleSubmit} className="new-game-form">
-            <label className="new-game-question">
-              Choose the number of cards:
-            </label>
+    <section className="new-game-dialog">
+      <div className="overflow-hidden">
+        <div className="dialog-content">
+          <form onSubmit={handleSubmit} className="dialog-form">
+            <label className="dialog-label">Choose the number of cards:</label>
             <input
               onChange={handleChange}
               value={inputValue}
               type="number"
               min={2}
               max={80}
+              className="dialog-input"
             />
-            <button className="btn btn-start">Start</button>
+            <button className="btn btn-start-game">Start</button>
           </form>
         </div>
       </div>
