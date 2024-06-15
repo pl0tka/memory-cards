@@ -18,6 +18,77 @@ body {
   background-color: var(--clr-background);
   color: var(--clr-text);
 }
+.btn {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 1px solid var(--clr-card-shadow);
+  border-radius: 0.4rem;
+  background-color: var(--clr-card-shadow);
+  color: #fff;
+  font-size: 1rem;
+}
+.btn:hover {
+  background-color: var(--clr-card-shadow-hover);
+  border-color: var(--clr-card-shadow-hover);
+}
+
+/* *** NEW GAME MODAL *** */
+.new-game {
+  background-color: var(--clr-background);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.new-game-box {
+  /* ?? */
+}
+.overflow-hidden {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new-game-inner {
+  width: 70%;
+  height: 50%;
+  border: 2px solid var(--clr-card-shadow-hover);
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new-game-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .new-game-form {
+    flex-direction: row;
+    align-items: baseline;
+  }
+}
+.btn-start {
+  padding: 0.2rem 1rem;
+}
+input {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0.3rem 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--clr-card-shadow);
+}
+
+/* *** START NEW GAME BUTTON *** */
+.top-panel {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
 
 /* *** THEME TOGGLER *** */
 .theme-toggler {
@@ -26,8 +97,6 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem 2rem;
-  display: block;
-  margin-left: auto;
 }
 @media screen and (min-width: 768px) {
   .theme-toggler {

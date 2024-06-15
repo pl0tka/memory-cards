@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import CardList from './CardList';
 import Header from './Header';
 import ThemeToggler from './ThemeToggler';
+import NewGameDialog from './NewGameDialog';
+import NewGameBtn from './StartNewGameBtn';
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
@@ -28,9 +30,27 @@ function App() {
     }
   }, [gameOver]);
 
+  // NEW GAME DIALOG temp
+  const [isStartedGame, setIsStartedGame] = useState(true);
+
+  const onStart = () => {
+    setIsStartedGame(!isStartedGame);
+  };
+
+  let modal;
+  if (!isStartedGame) {
+    modal = <NewGameDialog isStartedGame={isStartedGame} onStart={onStart} />;
+  } else {
+    modal = '';
+  }
+
   return (
     <div>
-      <ThemeToggler />
+      {modal}
+      <div className="top-panel">
+        <NewGameBtn onStart={onStart} />
+        <ThemeToggler />
+      </div>
       <Header currentScore={currentScore} bestScore={bestScore} />
       <CardList
         updateScore={updateScore}
