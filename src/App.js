@@ -53,9 +53,9 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       {dialog}
-      <div className="header-toolbar">
+      <div className="header-toolbar container">
         <NewGameBtn handleNewGame={handleNewGame} />
         <ThemeToggler />
       </div>
@@ -66,7 +66,7 @@ function App() {
         gameOver={gameOver}
         amountOfCards={amountOfCards}
       />
-    </div>
+    </>
   );
 }
 
