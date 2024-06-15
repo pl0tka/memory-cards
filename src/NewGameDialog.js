@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-function NewGameDialog({ onStart }) {
-  const [amountOfCards, setAmountOfCards] = useState(8);
+function NewGameDialog({ handleNewGame, onStart }) {
+  const [inputValue, setInputValue] = useState(12);
   // Preventing scrolling when a dialog is open
   useEffect(() => {
     document.body.classList.add('overflow-hidden');
@@ -12,11 +12,12 @@ function NewGameDialog({ onStart }) {
   }, []);
 
   const handleChange = (e) => {
-    setAmountOfCards(e.target.value);
+    setInputValue(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    onStart();
+    onStart(inputValue);
+    handleNewGame();
   };
 
   return (
@@ -24,13 +25,15 @@ function NewGameDialog({ onStart }) {
       <div className="new-game-box overflow-hidden">
         <div className="new-game-inner">
           <form onSubmit={handleSubmit} className="new-game-form">
-            <p className="new-game-question">Choose the number of cards: </p>
+            <label className="new-game-question">
+              Choose the number of cards:
+            </label>
             <input
               onChange={handleChange}
-              value={amountOfCards}
+              value={inputValue}
               type="number"
-              min={8}
-              max={50}
+              min={2}
+              max={80}
             />
             <button className="btn btn-start">Start</button>
           </form>

@@ -1,6 +1,6 @@
-function NewGameBtn({ onStart }) {
+function NewGameBtn({ handleNewGame }) {
   const handleClick = () => {
-    onStart();
+    handleNewGame();
   };
 
   return (

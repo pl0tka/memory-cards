@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useFetch(url) {
+function useFetch(url, amountOfCards) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,7 +18,7 @@ function useFetch(url) {
         }
         let fetchedData = await resp.json();
         if (!isCanceled) {
-          setData(fetchedData.slice(0, 16));
+          setData(fetchedData.slice(0, amountOfCards));
           setError(null);
         }
       } catch (err) {
@@ -37,7 +37,7 @@ function useFetch(url) {
     return () => {
       isCanceled = true;
     };
-  }, [url]);
+  }, [url, amountOfCards]);
 
   return [data, loading, error];
 }

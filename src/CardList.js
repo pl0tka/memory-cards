@@ -4,8 +4,8 @@ import Card from './Card';
 
 const url = 'https://www.moogleapi.com/api/v1/characters';
 
-function CardList({ updateScore, gameOver }) {
-  const [data, loading, error] = useFetch(url);
+function CardList({ updateScore, gameOver, amountOfCards }) {
+  const [data, loading, error] = useFetch(url, amountOfCards);
   const [shuffledCards, setShuffledCards] = useState([]);
 
   useEffect(() => {

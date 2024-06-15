@@ -4,12 +4,14 @@ import CardList from './CardList';
 import Header from './Header';
 import ThemeToggler from './ThemeToggler';
 import NewGameDialog from './NewGameDialog';
-import NewGameBtn from './StartNewGameBtn';
+import NewGameBtn from './NewGameBtn';
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [amountOfCards, setAmountOfCards] = useState(null);
 
   const updateScore = (clickedTwice) => {
     if (!clickedTwice) {
@@ -30,25 +32,31 @@ function App() {
     }
   }, [gameOver]);
 
-  // NEW GAME DIALOG temp
-  const [isStartedGame, setIsStartedGame] = useState(true);
-
-  const onStart = () => {
-    setIsStartedGame(!isStartedGame);
+  const handleNewGame = () => {
+    if (isGameStarted) {
+      setAmountOfCards(null);
+      setCurrentScore(0);
+      setBestScore(0);
+      setGameOver(false);
+    }
+    setIsGameStarted(!isGameStarted);
+  };
+  const onStart = (amount) => {
+    setAmountOfCards(amount);
   };
 
-  let modal;
-  if (!isStartedGame) {
-    modal = <NewGameDialog isStartedGame={isStartedGame} onStart={onStart} />;
+  let dialog = null;
+  if (!isGameStarted || !amountOfCards) {
+    dialog = <NewGameDialog onStart={onStart} handleNewGame={handleNewGame} />;
   } else {
-    modal = '';
+    dialog = null;
   }
 
   return (
     <div>
-      {modal}
+      {dialog}
       <div className="top-panel">
-        <NewGameBtn onStart={onStart} />
+        <NewGameBtn handleNewGame={handleNewGame} />
         <ThemeToggler />
       </div>
       <Header currentScore={currentScore} bestScore={bestScore} />
@@ -56,6 +64,7 @@ function App() {
         updateScore={updateScore}
         currentScore={currentScore}
         gameOver={gameOver}
+        amountOfCards={amountOfCards}
       />
     </div>
   );
