@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useFetch from './useFetch';
+import useFetch from '../hooks/useFetch';
 import Card from './Card';
 
 const url = 'https://www.moogleapi.com/api/v1/characters';

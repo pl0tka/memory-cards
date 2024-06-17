@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import themes from './themes.js';
+import themes from '../utils.js/themes.js';
 import { PiSunFill } from 'react-icons/pi';
-// import { PiMoonStarsLight } from 'react-icons/pi';
 import { PiMoonLight } from 'react-icons/pi';
 
 const setTheme = (theme) => {

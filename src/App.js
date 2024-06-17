@@ -1,10 +1,10 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
-import CardList from './CardList';
-import Header from './Header';
-import ThemeToggler from './ThemeToggler';
-import NewGameDialog from './NewGameDialog';
-import NewGameBtn from './NewGameBtn';
+import CardList from './components/CardList';
+import Header from './components/Header';
+import ThemeToggler from './components/ThemeToggler';
+import NewGameDialog from './components/NewGameDialog';
+import NewGameBtn from './components/NewGameBtn';
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
