@@ -5,8 +5,8 @@ function Header({ currentScore, bestScore }) {
     <div className="header">
       <header className="header-content container">
         <div>
-          <h1 className="header-title">Memory Game</h1>
-          <h2 className="header-subtitle">
+          <h1>Memory Game</h1>
+          <h2>
             Test your memory by clicking cards for points — just don't click any
             card more than once!
           </h2>
