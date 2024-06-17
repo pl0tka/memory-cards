@@ -24,6 +24,11 @@ function NewGameDialog({ handleNewGame, onStart }) {
     <section className="new-game-dialog">
       <div className="overflow-hidden">
         <div className="dialog-content">
+          <h1>Memory Game</h1>
+          <h2>
+            Test your memory by clicking cards for points — just don't click any
+            card more than once!
+          </h2>
           <form onSubmit={handleSubmit} className="dialog-form">
             <label className="dialog-label">Choose the number of cards:</label>
             <input
