@@ -22,13 +22,21 @@ function NewGameDialog({ handleNewGame, onStart }) {
 
   return (
     <section className="new-game-dialog">
-      <div className="overflow-hidden">
+      <div className="dialog-container">
         <div className="dialog-content">
           <h1>Memory Game</h1>
-          <h2>
-            Test your memory by clicking cards for points — just don't click any
-            card more than once!
-          </h2>
+          <h2>Test your memory with this memory cards game!</h2>
+          <ol className="dialog-instruction">
+            <li>Your goal is to click on as many unique cards as possible.</li>
+            <li>
+              Each time you click a card that you haven't clicked before, you
+              earn a point.
+            </li>
+            <li>
+              If you click the same card more than once, the game restarts.
+            </li>
+            <li>After each click, the cards are shuffled in a random order.</li>
+          </ol>
           <form onSubmit={handleSubmit} className="dialog-form">
             <label className="dialog-label">Choose the number of cards:</label>
             <input
